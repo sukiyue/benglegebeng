@@ -23,7 +23,6 @@ const isFreeze = computed(() => {
   return props.node.parents.length > 0 ? props.node.parents.some(o => o.state < 2) : false
 },
 )
-
 function handleClick() {
   if (!isFreeze.value)
     emit('clickCard', props.node)

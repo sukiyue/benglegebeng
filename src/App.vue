@@ -154,7 +154,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div h-50px flex items-center w-full justify-center mb-20px mt-20px>
+    <div h-50px flex items-center w-full justify-center mb-50px mt-20px>
       <button class="option-button" :disabled="removeFlag" mr-10px @click="handleRemove">
         移出前三个
       </button>
@@ -218,9 +218,19 @@ onMounted(() => {
   </div>
 </template>
 
+
 <style>
 .card-slot {
-  border-bottom: 4px solid #000;
+  position: relative;
+}
+.card-slot::after {
+  position: absolute;
+  content: '';
+  background-image: url('assets/card-slot.webp');
+  background-size: cover;
+  top: 15px;
+  width: 100%;
+  height: 100%;
 }
 .option-button {
   background-color: #ffe14c;
@@ -228,7 +238,7 @@ onMounted(() => {
   font-weight: 600px;
 }
 body{
-  background-image: url('./assets/bg.webp');
+  background-image: url('assets/bg.webp');
   background-size: cover;
 }
 

@@ -453,5 +453,68 @@
 		"oldSize": 62.083984375,
 		"ratio": 0,
 		"time(ms)": 42
+	},
+	"7eb39961c9622b5c95cb02ac0e3ac702": {
+		"relativePath": "src/assets/images/11.webp",
+		"size": 29.126953125,
+		"oldSize": 29.126953125,
+		"ratio": 0,
+		"time(ms)": 19
+	},
+	"3c9db768a88ce6699fcf90df16f23daf": {
+		"relativePath": "src/assets/images/14.webp",
+		"size": 33.951171875,
+		"oldSize": 33.951171875,
+		"ratio": 0,
+		"time(ms)": 20
+	},
+	"4ff1d15472281f94741c543317b9bcb5": {
+		"relativePath": "src/assets/images/8.webp",
+		"size": 24.552734375,
+		"oldSize": 24.552734375,
+		"ratio": 0,
+		"time(ms)": 20
+	},
+	"d61f52d38243592aa2ca443263b72789": {
+		"relativePath": "src/assets/images/9.webp",
+		"size": 41.81640625,
+		"oldSize": 41.81640625,
+		"ratio": 0,
+		"time(ms)": 21
+	},
+	"674577562c1005eee3ffbee28ca26141": {
+		"relativePath": "src/assets/images/12.webp",
+		"size": 27.65625,
+		"oldSize": 27.65625,
+		"ratio": 0,
+		"time(ms)": 22
+	},
+	"b9d9af817f919487ac436e36c8004f6f": {
+		"relativePath": "src/assets/images/10.webp",
+		"size": 34.921875,
+		"oldSize": 34.921875,
+		"ratio": 0,
+		"time(ms)": 22
+	},
+	"0fd9a1dd8b9d7e9708d65a9e36ae86f9": {
+		"relativePath": "src/assets/images/15.webp",
+		"size": 32.85546875,
+		"oldSize": 32.85546875,
+		"ratio": 0,
+		"time(ms)": 23
+	},
+	"6cc89035cceed44ef8fa55367df307ee": {
+		"relativePath": "src/assets/images/13.webp",
+		"size": 29.0625,
+		"oldSize": 29.0625,
+		"ratio": 0,
+		"time(ms)": 24
+	},
+	"4ce236b2be5c20813557e66e3200fdfd": {
+		"relativePath": "src/assets/card-slot.webp",
+		"size": 7.546875,
+		"oldSize": 7.546875,
+		"ratio": 0,
+		"time(ms)": 24
 	}
 }
