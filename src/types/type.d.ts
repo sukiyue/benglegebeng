@@ -4,10 +4,12 @@ interface Game {
   removeList: Ref<CardNode[]>;
   removeFlag: Ref<boolean>;
   backFlag: Ref<boolean>;
+  addSlotFlag: Ref<Boolean>; // 增加卡槽标识
   handleSelect: (node: CardNode) => void;
   handleSelectRemove: (node: CardNode) => void;
   handleBack: () => void;
   handleRemove: () => void;
+  handleAddSlot: () => void;
   initData: (config?: GameConfig) => void;
 }
 interface GameConfig {

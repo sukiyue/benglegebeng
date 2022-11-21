@@ -18,8 +18,10 @@ export function useGame(config: GameConfig): Game {
   const indexSet = new Set()
   let perFloorNodes: CardNode[] = []
   const selectedNodes = ref<CardNode[]>([])
+  const cardSlotLength = ref<Number>(7) // 卡槽长度
   const size = 52
   let floorList: number[][] = []
+  const addSlotFlag = ref(false)
 
   // 更新所有卡片节点状态，更新节点状态
   // 当前节点所有父节点 state 均大于 0 时，设置当前节点 state 为 1，即可点击
@@ -32,7 +34,7 @@ export function useGame(config: GameConfig): Game {
   // 卡片节点点击
   function handleSelect(node: CardNode) {
     // 判断卡槽列表是否已满，若已满则不再处理点击事件
-    if (selectedNodes.value.length === 7)
+    if (selectedNodes.value.length === cardSlotLength.value)
       return
     // 设置点击的节点状态为 已选择
     node.state = 2
@@ -69,6 +71,7 @@ export function useGame(config: GameConfig): Game {
         if (delNode ? nodes.value.length === 0 : nodes.value.every(o => o.state > 0) && removeList.value.length === 0 && selectedNodes.value.length === 0) {
           removeFlag.value = true
           backFlag.value = true
+          addSlotFlag.value = true
           events.winCallback && events.winCallback()
         }
         else {
@@ -84,9 +87,10 @@ export function useGame(config: GameConfig): Game {
       else
         selectedNodes.value.push(node)
       // 判断卡槽是否已满，即失败
-      if (selectedNodes.value.length === 7) {
+      if (selectedNodes.value.length === cardSlotLength.value) {
         removeFlag.value = true
         backFlag.value = true
+        addSlotFlag.value = true
         events.loseCallback && events.loseCallback()
       }
     }
@@ -126,12 +130,18 @@ export function useGame(config: GameConfig): Game {
     }
   }
 
+  function handleAddSlot() {
+    addSlotFlag.value = true
+    cardSlotLength.value = 8
+  }
+
   function initData(config?: GameConfig | null) {
     const { cardNum, layerNum, trap } = { ...initConfig, ...config }
     histroyList.value = []
     backFlag.value = false
     removeFlag.value = false
     removeList.value = []
+    addSlotFlag.value = false
     preNode.value = null
     nodes.value = []
     indexSet.clear()
@@ -211,10 +221,12 @@ export function useGame(config: GameConfig): Game {
     removeFlag,
     removeList,
     backFlag,
+    addSlotFlag,
     handleSelect,
     handleBack,
     handleRemove,
     handleSelectRemove,
+    handleAddSlot,
     initData,
   }
 }

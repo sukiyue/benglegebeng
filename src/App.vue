@@ -14,7 +14,7 @@ const curLevel = ref(1)
 const showTip = ref(false)
 const LevelConfig = [
   { cardNum: 5, layerNum: 2, trap: false },
-  { cardNum: 9, layerNum: 3, trap: false },
+  { cardNum: 10, layerNum: 3, trap: false },
   { cardNum: 15, layerNum: 6, trap: false },
 ]
 
@@ -30,6 +30,8 @@ const {
   removeFlag,
   removeList,
   handleSelectRemove,
+  handleAddSlot,
+  addSlotFlag,
   initData,
 } = useGame({
   container: containerRef,
@@ -158,9 +160,12 @@ onMounted(() => {
       <button class="option-button" :disabled="removeFlag" mr-10px @click="handleRemove">
         移出前三个
       </button>
-      <button class="option-button" :disabled="backFlag" @click="handleBack">
+      <button class="option-button" :disabled="backFlag" mr-10px @click="handleBack">
         回退
       </button>
+      <!-- <button class="option-button" :disabled="addSlotFlag" @click="handleAddSlot">
+        增加卡槽
+      </button> -->
     </div>
     <!-- <div w-full color="#000" fw-600 text-center pb-10px>
       <span mr-20px>designer: Teacher Face</span>
