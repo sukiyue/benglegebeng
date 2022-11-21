@@ -8,10 +8,12 @@
     "build": "fm && vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "canvas-confetti": "^1.5.1",
+    "gh-pages": "^4.0.0",
     "lodash-es": "^4.17.21",
     "vue": "^3.2.37"
   },
