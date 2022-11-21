@@ -13,7 +13,7 @@ const welAudioRef = ref<HTMLAudioElement | undefined>()
 const curLevel = ref(1)
 const showTip = ref(false)
 const LevelConfig = [
-  { cardNum: 4, layerNum: 2, trap: false },
+  { cardNum: 5, layerNum: 2, trap: false },
   { cardNum: 9, layerNum: 3, trap: false },
   { cardNum: 15, layerNum: 6, trap: false },
 ]
@@ -141,7 +141,7 @@ onMounted(() => {
       />
     </div>
     <div w-full flex items-center justify-center>
-      <div class="card-slot" w-295px h-44px flex>
+      <div class="card-slot" w-365px h-54px flex>
         <template v-for="item in selectedNodes" :key="item.id">
           <transition name="bounce">
             <Card
@@ -154,7 +154,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div h-50px flex items-center w-full justify-center mb-50px mt-20px>
+    <div h-50px flex items-center w-full justify-center mb-40px mt-20px>
       <button class="option-button" :disabled="removeFlag" mr-10px @click="handleRemove">
         移出前三个
       </button>
@@ -222,13 +222,15 @@ onMounted(() => {
 <style>
 .card-slot {
   position: relative;
+  /* border: 4px solid #000; */
 }
 .card-slot::after {
+  /* border-bottom: 4px solid #000; */
   position: absolute;
   content: '';
   background-image: url('assets/card-slot.webp');
   background-size: cover;
-  top: 15px;
+  top: 25px;
   width: 100%;
   height: 100%;
 }

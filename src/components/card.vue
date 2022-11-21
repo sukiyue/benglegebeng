@@ -37,15 +37,15 @@ function handleClick() {
   >
     <!-- {{ node.zIndex }}-{{ node.type }} -->
     <!-- {{ node.id }} -->
-    <img :src="IMG_MAP[node.type]" width="40" height="40" :alt="`${node.type}`">
+    <img :src="IMG_MAP[node.type]" width="50" height="50" :alt="`${node.type}`">
     <div v-if="isFreeze" class="mask" />
   </div>
 </template>
 
 <style scoped>
 .card{
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background: #f9f7e1;
   color:#000;
   display: flex;
@@ -65,8 +65,8 @@ img{
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.55);
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   pointer-events: none;
 }
 </style>

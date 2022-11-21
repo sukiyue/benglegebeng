@@ -18,7 +18,7 @@ export function useGame(config: GameConfig): Game {
   const indexSet = new Set()
   let perFloorNodes: CardNode[] = []
   const selectedNodes = ref<CardNode[]>([])
-  const size = 40
+  const size = 52
   let floorList: number[][] = []
 
   // 更新所有卡片节点状态，更新节点状态
@@ -59,12 +59,10 @@ export function useGame(config: GameConfig): Game {
           // const index = selectedNodes.value.findIndex(o => o.type === node.type)
           selectedNodes.value.splice(secondIndex - 1, 1)
         }
-        
         // 消除后计算连击数，限时连续消除增加combo数，到达一定程度，限时启动狂热状态
         // 限时狂热状态下，卡槽 length + 1。随后恢复卡槽原长度
         // 消除后 comboNum = 1， 启动计时器，规定时间内再次消除，comboNum++
         // 判断comboNum > 10 ? 启动狂热模式 ： 重置comboNum
-
 
         preNode.value = null
         // 判断是否已经清空节点，即是否胜利
@@ -144,12 +142,9 @@ export function useGame(config: GameConfig): Game {
 
     // 生成节点池
     const itemTypes = (new Array(cardNum).fill(0)).map((_, index) => index + 1)
-    console.log('itemTypes', itemTypes)
     let itemList: number[] = []
     for (let i = 0; i < 3 * layerNum; i++)
       itemList = [...itemList, ...itemTypes]
-    
-
     if (isTrap) {
       const len = itemList.length
       itemList.splice(len - cardNum, len)
@@ -173,10 +168,7 @@ export function useGame(config: GameConfig): Game {
     const width = containerWidth / 2
     const height = containerHeight / 2 - 60
 
-    console.log('floorList', floorList)
-
     floorList.forEach((o, index) => {
-
       indexSet.clear()
       let i = 0
       const floorNodes: CardNode[] = []
