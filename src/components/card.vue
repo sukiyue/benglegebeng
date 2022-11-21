@@ -4,13 +4,13 @@ const props = defineProps<Props>()
 const emit = defineEmits(['clickCard'])
 
 // 加载图片资源
-const modules = import.meta.glob('../assets/tutu2/*.png', {
+const modules = import.meta.glob('../assets/images/*.webp', {
   as: 'url',
   import: 'default',
   eager: true,
 })
 const IMG_MAP = Object.keys(modules).reduce((acc, cur) => {
-  const key = cur.replace('../assets/tutu2/', '').replace('.png', '')
+  const key = cur.replace('../assets/images/', '').replace('.webp', '')
   acc[key] = modules[cur]
   return acc
 }, {} as Record<string, string>)
@@ -47,13 +47,11 @@ function handleClick() {
 .card{
   width: 40px;
   height: 40px;
-  /* border: 1px solid red; */
   background: #f9f7e1;
   color:#000;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   border-radius: 4px;
   border: 1px solid #000;
   box-shadow: 1px 5px 5px -1px #000;

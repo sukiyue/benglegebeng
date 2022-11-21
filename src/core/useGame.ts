@@ -1,10 +1,10 @@
 import { ref } from 'vue'
 import { ceil, floor, random, shuffle } from 'lodash-es'
 const defaultGameConfig: GameConfig = {
-  cardNum: 4,
-  layerNum: 2,
-  trap: true,
-  delNode: false,
+  cardNum: 4, // card类型数量，初始化为4，即第一关的只有四个卡种
+  layerNum: 2, // card层数，初始化为2，即第一关的层级为2
+  trap: true, // 是否开启陷阱
+  delNode: false, // 是否从nodes中剔除已选节点
 }
 
 export function useGame(config: GameConfig): Game {
@@ -21,27 +21,37 @@ export function useGame(config: GameConfig): Game {
   const size = 40
   let floorList: number[][] = []
 
+  // 更新所有卡片节点状态，更新节点状态
+  // 当前节点所有父节点 state 均大于 0 时，设置当前节点 state 为 1，即可点击
   function updateState() {
     nodes.value.forEach((o) => {
       o.state = o.parents.every(p => p.state > 0) ? 1 : 0
     })
   }
 
+  // 卡片节点点击
   function handleSelect(node: CardNode) {
+    // 判断卡槽列表是否已满，若已满则不再处理点击事件
     if (selectedNodes.value.length === 7)
       return
+    // 设置点击的节点状态为 已选择
     node.state = 2
+    // 历史列表存入点击节点，用于回退功能
     histroyList.value.push(node)
+
     preNode.value = node
+    // 获取当前节点的索引值
     const index = nodes.value.findIndex(o => o.id === node.id)
+    // 查询到索引值后，在nodes列表中删除当前节点，模拟将点击节点移动到卡槽
     if (index > -1)
       delNode && nodes.value.splice(index, 1)
 
-    // 判断是否有可以消除的节点
+    // 判断卡槽中是否有可以消除的节点
     const selectedSomeNode = selectedNodes.value.filter(s => s.type === node.type)
     if (selectedSomeNode.length === 2) {
-      // 第二个节点索引
+      // 获取第二个节点索引
       const secondIndex = selectedNodes.value.findIndex(o => o.id === selectedSomeNode[1].id)
+      // 
       selectedNodes.value.splice(secondIndex + 1, 0, node)
       // 为了动画效果添加延迟
       setTimeout(() => {
@@ -49,6 +59,13 @@ export function useGame(config: GameConfig): Game {
           // const index = selectedNodes.value.findIndex(o => o.type === node.type)
           selectedNodes.value.splice(secondIndex - 1, 1)
         }
+        
+        // 消除后计算连击数，限时连续消除增加combo数，到达一定程度，限时启动狂热状态
+        // 限时狂热状态下，卡槽 length + 1。随后恢复卡槽原长度
+        // 消除后 comboNum = 1， 启动计时器，规定时间内再次消除，comboNum++
+        // 判断comboNum > 10 ? 启动狂热模式 ： 重置comboNum
+
+
         preNode.value = null
         // 判断是否已经清空节点，即是否胜利
         if (delNode ? nodes.value.length === 0 : nodes.value.every(o => o.state > 0) && removeList.value.length === 0 && selectedNodes.value.length === 0) {
@@ -127,9 +144,11 @@ export function useGame(config: GameConfig): Game {
 
     // 生成节点池
     const itemTypes = (new Array(cardNum).fill(0)).map((_, index) => index + 1)
+    console.log('itemTypes', itemTypes)
     let itemList: number[] = []
     for (let i = 0; i < 3 * layerNum; i++)
       itemList = [...itemList, ...itemTypes]
+    
 
     if (isTrap) {
       const len = itemList.length
@@ -154,7 +173,10 @@ export function useGame(config: GameConfig): Game {
     const width = containerWidth / 2
     const height = containerHeight / 2 - 60
 
+    console.log('floorList', floorList)
+
     floorList.forEach((o, index) => {
+
       indexSet.clear()
       let i = 0
       const floorNodes: CardNode[] = []
@@ -167,8 +189,7 @@ export function useGame(config: GameConfig): Game {
         const node: CardNode = {
           id: `${index}-${i}`,
           type: k,
-          zIndex:
-        index,
+          zIndex: index,
           index: i,
           row,
           column,

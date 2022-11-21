@@ -369,5 +369,89 @@
 		"oldSize": 157.9990234375,
 		"ratio": -0.027640598055516108,
 		"time(ms)": 11762
+	},
+	"bf1e760471eceec6db8cb87b7764270f": {
+		"relativePath": "src/assets/images/2.webp",
+		"size": 35.041015625,
+		"oldSize": 35.041015625,
+		"ratio": 0,
+		"time(ms)": 30
+	},
+	"a851ff3a8b740eb67942d9e49b692949": {
+		"relativePath": "src/assets/images/4.webp",
+		"size": 32.60546875,
+		"oldSize": 32.60546875,
+		"ratio": 0,
+		"time(ms)": 31
+	},
+	"739663a3bc213327587227f14dec49b6": {
+		"relativePath": "src/assets/images/1.webp",
+		"size": 45.154296875,
+		"oldSize": 45.154296875,
+		"ratio": 0,
+		"time(ms)": 32
+	},
+	"4f287a9c0dd9c3be232c74cfa0197809": {
+		"relativePath": "src/assets/images/3.webp",
+		"size": 39.90234375,
+		"oldSize": 39.90234375,
+		"ratio": 0,
+		"time(ms)": 33
+	},
+	"ffacd445a199fb1169b79050ffda54ac": {
+		"relativePath": "src/assets/images/5.webp",
+		"size": 39.69921875,
+		"oldSize": 39.69921875,
+		"ratio": 0,
+		"time(ms)": 33
+	},
+	"5f8b9aa3bd6aa245491f2c6ce11c4af8": {
+		"relativePath": "src/assets/images/6.webp",
+		"size": 37.296875,
+		"oldSize": 37.296875,
+		"ratio": 0,
+		"time(ms)": 34
+	},
+	"77ed5c70854b7bc219b53ccefebf94e2": {
+		"relativePath": "src/assets/images/7.webp",
+		"size": 37.1640625,
+		"oldSize": 37.1640625,
+		"ratio": 0,
+		"time(ms)": 35
+	},
+	"a7a87626e145046d31730d0b0dfab117": {
+		"relativePath": "src/assets/images/10.webp",
+		"size": 62.166015625,
+		"oldSize": 62.166015625,
+		"ratio": 0,
+		"time(ms)": 36
+	},
+	"f67b7720e44c2f67ff15ae2a9287b449": {
+		"relativePath": "src/assets/images/9.webp",
+		"size": 41.220703125,
+		"oldSize": 41.220703125,
+		"ratio": 0,
+		"time(ms)": 37
+	},
+	"53e91edeefe99f5d4fe775ac69c14a3a": {
+		"relativePath": "src/assets/bg.webp",
+		"size": 119.90625,
+		"oldSize": 119.90625,
+		"ratio": 0,
+		"time(ms)": 41
+	},
+	"c3cb906a0122a4a84226c96d2ae77efb": {
+		"relativePath": "src/assets/images/11.webp",
+		"size": 39.228515625,
+		"oldSize": 39.228515625,
+		"ratio": 0,
+		"time(ms)": 40
+	},
+	"b519310ea5fc1b11c22a4e31924c66f7": {
+		"relativePath": "src/assets/images/8.webp",
+		"size": 62.083984375,
+		"oldSize": 62.083984375,
+		"ratio": 0,
+		"time(ms)": 42
 	}
 }

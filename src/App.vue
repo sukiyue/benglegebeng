@@ -81,7 +81,7 @@ function handleWin() {
 function handleLose() {
   loseAudioRef.value?.play()
   setTimeout(() => {
-    alert('槽位已满，再接再厉~')
+    alert('已被崩坏侵蚀，堕入轮回~')
     // window.location.reload()
     nodes.value = []
     removeList.value = []
@@ -106,9 +106,9 @@ onMounted(() => {
 
 <template>
   <div flex flex-col w-full h-full>
-    <div text-44px text-center w-full color="#000" fw-600 h-60px flex items-center justify-center mt-10px>
-      兔了个兔
-    </div>
+    <span text-44px text-center w-full color="#000" fw-600 h-60px flex items-center justify-center mt-30px>
+      崩了个崩
+    </span>
     <div ref="containerRef" flex-1 flex>
       <div w-full relative flex-1>
         <template v-for="item in nodes" :key="item.id">
@@ -123,7 +123,7 @@ onMounted(() => {
       </div>
       <transition name="bounce">
         <div v-if="isWin" color="#000" flex items-center justify-center w-full text-28px fw-bold>
-          成功加入兔圈~
+          成功战胜崩坏！
         </div>
       </transition>
       <transition name="bounce">
@@ -141,7 +141,7 @@ onMounted(() => {
       />
     </div>
     <div w-full flex items-center justify-center>
-      <div border="~ 4px dashed #000" w-295px h-44px flex>
+      <div class="card-slot" w-295px h-44px flex>
         <template v-for="item in selectedNodes" :key="item.id">
           <transition name="bounce">
             <Card
@@ -154,15 +154,15 @@ onMounted(() => {
       </div>
     </div>
 
-    <div h-50px flex items-center w-full justify-center>
-      <button :disabled="removeFlag" mr-10px @click="handleRemove">
+    <div h-50px flex items-center w-full justify-center mb-20px mt-20px>
+      <button class="option-button" :disabled="removeFlag" mr-10px @click="handleRemove">
         移出前三个
       </button>
-      <button :disabled="backFlag" @click="handleBack">
+      <button class="option-button" :disabled="backFlag" @click="handleBack">
         回退
       </button>
     </div>
-    <div w-full color="#000" fw-600 text-center pb-10px>
+    <!-- <div w-full color="#000" fw-600 text-center pb-10px>
       <span mr-20px>designer: Teacher Face</span>
       by: Xc
       <a
@@ -184,7 +184,7 @@ onMounted(() => {
           i-carbon:arrow-up-left
         />
         star buff</span>
-    </div>
+    </div> -->
     <audio
       ref="clickAudioRef"
       style="display: none;"
@@ -219,8 +219,17 @@ onMounted(() => {
 </template>
 
 <style>
+.card-slot {
+  border-bottom: 4px solid #000;
+}
+.option-button {
+  background-color: #ffe14c;
+  color: #663c00;
+  font-weight: 600px;
+}
 body{
-  background-color: #c3fe8b;
+  background-image: url('./assets/bg.webp');
+  background-size: cover;
 }
 
 .bounce-enter-active {
