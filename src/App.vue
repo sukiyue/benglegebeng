@@ -15,7 +15,7 @@ const showTip = ref(false)
 const LevelConfig = [
   { cardNum: 5, layerNum: 2, trap: false },
   { cardNum: 10, layerNum: 3, trap: false },
-  { cardNum: 15, layerNum: 6, trap: false },
+  { cardNum: 15, layerNum: 3, trap: false },
 ]
 
 const isWin = ref(false)
@@ -35,8 +35,8 @@ const {
   initData,
 } = useGame({
   container: containerRef,
-  cardNum: 4,
-  layerNum: 2,
+  cardNum: 15,
+  layerNum: 3,
   trap: false,
   events: {
     clickCallback: handleClickCard,

@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import { ceil, floor, random, shuffle } from 'lodash-es'
 const defaultGameConfig: GameConfig = {
   cardNum: 4, // card类型数量，初始化为4，即第一关的只有四个卡种
-  layerNum: 2, // card层数，初始化为2，即第一关的层级为2
+  layerNum: 2, // 卡种倍数，初始化为2，即每种卡有2对
   trap: true, // 是否开启陷阱
   delNode: false, // 是否从nodes中剔除已选节点
 }
@@ -159,8 +159,16 @@ export function useGame(config: GameConfig): Game {
       const len = itemList.length
       itemList.splice(len - cardNum, len)
     }
+    // console.log('itemList', itemList)
+
     // 打乱节点
     itemList = shuffle(shuffle(itemList))
+
+    // 获取屏幕大小
+    const containerWidth = container.value!.clientWidth
+    const containerHeight = container.value!.clientHeight
+    const width = containerWidth / 2
+    const height = containerHeight / 2 - 60
 
     // 初始化各个层级节点
     let len = 0
@@ -173,11 +181,8 @@ export function useGame(config: GameConfig): Game {
       len += floorNum
       floorIndex++
     }
-    const containerWidth = container.value!.clientWidth
-    const containerHeight = container.value!.clientHeight
-    const width = containerWidth / 2
-    const height = containerHeight / 2 - 60
 
+    // console.log('floorList', floorList)
     floorList.forEach((o, index) => {
       indexSet.clear()
       let i = 0
